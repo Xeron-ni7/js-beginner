@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Real Time calculator</title>
+  </head>
+  <script src="calculator.js"></script>
+  <body>
+    <input
+      type="number"
+      oninput="check2nd()"
+      id="1st"
+      width="20%"
+      placeholder="Enter first value"
+    />
+    <select id="m" onchange="setMethod()">
+      <option value="" selected disabled>Select a method</option>
+      <option value="+">+ (Sum)</option>
+      <option value="-">- (Sub)</option>
+      <option value="*">x (Mul)</option>
+      <option value="/">/ (Div)</option>
+    </select>
+    <input
+      type="number"
+      id="2nd"
+      oninput="check1st()"
+      width="20%"
+      placeholder="Enter second value"
+    />
+
+    <p>-- Total --</p>
+    <input id="ans" type="text" value="=0" disabled />
+  </body>
+</html>

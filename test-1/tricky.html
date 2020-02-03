@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <title>
+    Trick
+  </title>
+  <body>
+    <script>
+      document.write("hello lets start");
+    </script>
+
+    <br />
+    <h3>'==' vs '==='</h3>
+    <p>if(12=='12') = ? <input type="text" id="tt0" /></p>
+    <button onclick="checkNRe('tt0',0)">Check !</button>
+    <p id="ans0" style="display: none;">True</p>
+    <p>if(true=='true') = ? <input type="text" id="tt1" /></p>
+    <button onclick="checkNRe('tt1',1)">Check !</button>
+    <p id="ans1" style="display: none;">True</p>
+
+    <br />
+
+    <p>if(420==='420') = ? <input type="text" id="tt2" /></p>
+    <button onclick="checkNRe('tt2',2)">Check !</button>
+    <p id="ans2" style="display: none;">False</p>
+
+    <br />
+    <br />
+
+    <button
+      id="whyBtn"
+      onclick="document.getElementById('why').style.display='block'"
+      style="display: none;"
+    >
+      WHY??
+    </button>
+
+    <div id="why" style="display: none;">
+      <h1 style="text-align: center;">----- WHY? -----</h1>
+      <h3 style="text-align: center;">
+        In Javascript, we have couple of options for checking equality:
+
+        <ul>
+          <li>
+            <i>
+              == (Double equals operator): Known as the equality or abstract
+              comparison operator</i
+            >
+          </li>
+          <li>
+            <i>
+              === (Triple equals operator): Known as the identity or strict
+              comparison operator</i
+            >
+          </li>
+        </ul>
+
+        <br />
+
+        <b>The difference between == and === is that:</b>
+        <br />
+
+        <ul>
+          <li>
+            <i style="color:darkcyan;"
+              >== converts the variable values to the same type before
+              performing comparison. This is called
+              <a href="typeo.html" style="color: deepskyblue;"
+                >type coercion.</a
+              ></i
+            >
+          </li>
+          <li>
+            <i style="color:blueviolet;"
+              >=== does not do any type conversion (coercion) and returns true
+              only if both values and types are identical for the two variables
+              being compared.</i
+            >
+          </li>
+        </ul>
+      </h3>
+    </div>
+  </body>
+  <script>
+    let arr = ["true", "TRue", "false"];
+    let done = [];
+    function checkNRe(id, t2) {
+      let t = document.getElementById(id).value;
+      let p = document.getElementById("ans" + t2);
+      if (t.toLowerCase() === arr[t2].toLowerCase()) {
+        p.style.color = "green";
+      } else {
+        p.style.color = "red";
+      }
+      p.style.display = "block";
+
+      checkAll(t2);
+    }
+
+    checkAll = function(x) {
+      if (done.indexOf(x) === -1) {
+        done.push(x);
+      }
+
+      if (done.length >= 3) {
+        document.getElementById("whyBtn").style.display = "block";
+      }
+    };
+  </script>
+</html>
